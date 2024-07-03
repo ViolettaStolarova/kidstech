@@ -3,10 +3,11 @@ import { Dispatch, useEffect } from 'react';
 
 import useTagSelect from '../../../../shared/hooks/useTagSelect';
 
+import getUrlSearchParams from '../../../../services/helpers/getUrlSearchParams';
+
 import TagItem from './components/tagItem';
 
 import styles from './tagsList.module.scss';
-import getUrlSearchParams from '../../../../services/helpers/getUrlSearchParams';
 
 interface BaseTag {
   tagName: string;
