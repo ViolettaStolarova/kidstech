@@ -1,0 +1,11 @@
+@import '../../constants//global.scss';
+
+.main_page__container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+
+  padding: 24px;
+
+  background-color: $primaryBackgroundColor;
+}
