@@ -1,9 +1,9 @@
-import { Course } from '../../../../../../services/api/getCoursesList/types';
+import { CourseFromServer } from '../../../../services/api/types';
 
 import styles from './courseCard.module.scss';
 
 interface CourseCardProps {
-  course: Course;
+  course: CourseFromServer;
 }
 
 function CourseCard(props: CourseCardProps) {

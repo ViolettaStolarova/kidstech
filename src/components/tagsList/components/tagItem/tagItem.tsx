@@ -1,3 +1,5 @@
+import composeClassNames from '../../../../services/helpers/composeClassNames';
+
 import styles from './tagItem.module.scss';
 
 interface TagItemProps {
@@ -9,7 +11,7 @@ interface TagItemProps {
 function TagItem(props: TagItemProps) {
   const { tagName, isSelectedTag, onClick } = props;
 
-  const tagClassName = `${styles.tag_item} ${isSelectedTag ? styles.active : ''}`;
+  const tagClassName = composeClassNames(styles.tag_item, { [styles.active]: isSelectedTag });
 
   return (
     <button className={tagClassName} type="button" onClick={onClick}>

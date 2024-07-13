@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
-import updateUrl from '../../services/helpers/updateUrl';
 
-function useTagSelect(tag?: string) {
-  const [selectedTag, setSelectedTag] = useState<string>(tag || '');
+import BASE_TAG from '../constants/baseTag';
+import setUrlSearchParam from '../../services/helpers/setUrlSearchParam';
+import deleteUrlSearchParam from '../../services/helpers/deleteUrlSearchParam';
+import getUrlSearchParam from '../../services/helpers/getUrlSearchParam';
+
+function useTagSelect() {
+  const tagIdFromUrl = getUrlSearchParam(window.location.href, 'tag');
+
+  const [selectedTagId, setSelectedTagId] = useState<string>(tagIdFromUrl || BASE_TAG.id);
 
   useEffect(() => {
-    if (tag) {
-      const currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.delete('tag');
+    deleteUrlSearchParam(window.location.href, selectedTagId);
+    setUrlSearchParam(window.location.href, selectedTagId);
+  }, [selectedTagId]);
 
-      window.history.replaceState({}, '', currentUrl);
-    }
-
-    updateUrl(window.location.href, { tag: selectedTag });
-  }, [selectedTag, tag]);
-
-  return [selectedTag, setSelectedTag];
+  return { selectedTagId, setSelectedTagId };
 }
 
 export default useTagSelect;
