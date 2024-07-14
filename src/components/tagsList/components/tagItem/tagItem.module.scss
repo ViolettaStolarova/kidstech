@@ -1,0 +1,19 @@
+.tag_item {
+  width: 240px;
+  height: 42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 12px;
+
+  line-height: 18px;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  &.active {
+    color: white;
+    background: var(--primaryColor);
+  }
+}

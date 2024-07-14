@@ -1,7 +1,7 @@
-import { Course } from '../api/getCoursesList/types';
+import { CourseFromServer } from '../api/types';
 
-function getCoursesByTag(courses: Course[], tag: string): Course[] {
-  const filteredCourses = courses.filter((course) => course.tags.includes(tag));
+function getCoursesByTag(courses: CourseFromServer[], tagId: string): CourseFromServer[] {
+  const filteredCourses = courses.filter((course) => course.tags.includes(tagId));
 
   return filteredCourses;
 }
